@@ -1,4 +1,9 @@
 ModernIEManager
 ===============
 
-Bash script for Linux to manage Modern.IE virtual machines
+This inventively titled application is a simple shell script for downloading modern.IE virtual machines and extracting them.
+
+## Requirements ##
+* Linux
+* wget
+* rar
