@@ -33,7 +33,6 @@ echo "$msg"
 
 ### Setup ###
 VBDIR="/home/ModernIEVMs/"
-mkdir -p $VBDIR
 cd $VBDIR
 
 ### If VM archives missing, add to download list ###
