@@ -1,8 +1,6 @@
 #!/bin/bash
 # ModernIEManager
 
-
-
 ### Some functions ###
 # Most of this is taken from http://serverfault.com/a/298312
 options=("W10-Edge" "W8.1-IE11" "W8-IE10" "W7-IE11" "W7-IE10" "W7-IE9" "W7-IE8" "Vista-IE7" "XP-IE8" "XP-IE6")
@@ -14,7 +12,6 @@ menu() {
     done
     [[ "$msg" ]] && echo "$msg"; :
 }
-
 
 # Get user to select IE versions they want to download
 prompt="Check an option (again to uncheck, ENTER when done): "
@@ -33,61 +30,59 @@ done
 echo "$msg"
 
 
-# Setup up VirtualBox dir under
-mkdir -p $HOME/"VirtualBox VMs/"
-cd $HOME/"VirtualBox VMs/"
 
-
+### Setup ###
+cd "vm-archive"
 
 ### If VM archives missing, add to download list ###
 if [ ${choices[0]} ]
-  then
-    [ ! -e "Edge - Win10/Microsoft%20Edge.Win10.For.Windows.VirtualBox.zip" ] && urls+='https://az792536.vo.msecnd.net/vms/VMBuild_20150801/VirtualBox/MSEdge/Windows/Microsoft%20Edge.Win10.For.Windows.VirtualBox.zip '
+then
+    [ ! -e "Microsoft Edge.Win10.For.Windows.VirtualBox.zip" ] && urls+='https://az792536.vo.msecnd.net/vms/VMBuild_20150801/VirtualBox/MSEdge/Windows/Microsoft%20Edge.Win10.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[1]} ]
 then
-    [ ! -e "IE11 - Win8.1/IE11.Win8.1.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE11/Windows/IE11.Win8.1.For.Windows.VirtualBox.zip '
+    [ ! -e "IE11.Win8.1.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE11/Windows/IE11.Win8.1.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[2]} ]
 then
-    [ ! -e "IE10 - Win8/IE10.Win8.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE10/Windows/IE10.Win8.For.Windows.VirtualBox.zip '
+    [ ! -e "IE10.Win8.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE10/Windows/IE10.Win8.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[3]} ]
 then
-    [ ! -e "IE11 - Win7/IE11.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE11/Windows/IE11.Win7.For.Windows.VirtualBox.zip '
+    [ ! -e "IE11.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE11/Windows/IE11.Win7.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[4]} ]
 then
-    [ ! -e "IE10 - Win7/IE10.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE10/Windows/IE10.Win7.For.Windows.VirtualBox.zip '
+    [ ! -e "IE10.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE10/Windows/IE10.Win7.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[5]} ]
 then
-    [ ! -e "IE9 - Win7/IE9.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE9/Windows/IE9.Win7.For.Windows.VirtualBox.zip '
+    [ ! -e "IE9.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE9/Windows/IE9.Win7.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[6]} ]
 then
-    [ ! -e "IE8 - Win7/IE8.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE8/Windows/IE8.Win7.For.Windows.VirtualBox.zip '
+    [ ! -e "IE8.Win7.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE8/Windows/IE8.Win7.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[7]} ]
 then
-    [ ! -e "IE7 - Vista/IE7.Vista.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE7/Windows/IE7.Vista.For.Windows.VirtualBox.zip '
+    [ ! -e "IE7.Vista.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE7/Windows/IE7.Vista.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[8]} ]
 then
-    [ ! -e "IE8 - WinXP/IE8.XP.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE8/Windows/IE8.XP.For.Windows.VirtualBox.zip '
+    [ ! -e "IE8.XP.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE8/Windows/IE8.XP.For.Windows.VirtualBox.zip '
 fi
 
 if [ ${choices[9]} ]
 then
-    [ ! -e "IE6 - WinXP/IE6.XP.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE6/Windows/IE6.XP.For.Windows.VirtualBox.zip '
+    [ ! -e "IE6.XP.For.Windows.VirtualBox.zip" ] && urls+='https://az412801.vo.msecnd.net/vhd/VMBuild_20141027/VirtualBox/IE6/Windows/IE6.XP.For.Windows.VirtualBox.zip '
 fi
 
 ### Download things if needed ###
@@ -105,20 +100,17 @@ if [ ${choices[0]} ]
   echo "Extracting Edge - Win10"
   echo "==============================="
 
-  # Setup
-  VBoxManage unregistervm --delete "Edge - Win10"
-  mkdir -p $HOME/"VirtualBox VMs/Edge - Win10/"
-  cd $HOME/"VirtualBox VMs/Edge - Win10/"
+  # Remove the VM
+  VBoxManage unregistervm --delete "IE11 - Win10"
 
-  # Move archive if neeed, extract OVA
-  [ ! -e "Microsoft%20Edge.Win10.For.Windows.VirtualBox.zip" ] && mv "../Edge - Win10/Microsoft%20Edge.Win10.For.Windows.VirtualBox.zip" .
-  [ ! -e "Edge - Win10.ova" ] && unzip 'Microsoft%20Edge.Win10.For.Windows.VirtualBox.zip'
+  # Extract OVA
+  [ ! -e "IE11 - Win10.ova" ] && unzip 'Microsoft Edge.Win10.For.Windows.VirtualBox.zip'
 
   # Import to VirtualBox
   VBoxManage import "IE11 - Win10.ova"
 
   # Remove the OVA
-  rm "Edge - Win10.ova"
+  rm "IE11 - Win10.ova"
 fi
 
 # Extract IE11 - Win8.1
@@ -130,11 +122,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE11 - Win8.1"
-    mkdir -p $HOME/"VirtualBox VMs/IE11 - Win8.1/"
-    cd $HOME/"VirtualBox VMs/IE11 - Win8.1/"
 
-    # Move archive if needed, extract OVA
-    [ ! -e "IE11.Win8.1.For.Windows.VirtualBox.zip" ] && mv "../IE11.Win8.1.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE11 - Win8.1.ova" ] && unzip 'IE11.Win8.1.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -153,11 +142,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE10 - Win8"
-    mkdir -p $HOME/"VirtualBox VMs/IE10 - Win8/"
-    cd $HOME/"VirtualBox VMs/IE10 - Win8/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE10.Win8.For.Windows.VirtualBox.zip" ] && mv "../IE10.Win8.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE10 - Win8.ova" ] && unzip 'IE10.Win8.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -176,11 +162,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE11 - Win7"
-    mkdir -p $HOME/"VirtualBox VMs/IE11 - Win7/"
-    cd $HOME/"VirtualBox VMs/IE11 - Win7/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE11.Win7.For.Windows.VirtualBox.zip" ] && mv "../IE11.Win7.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE11 - Win7.ova" ] && unzip 'IE11.Win7.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -199,11 +182,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE10 - Win7"
-    mkdir -p $HOME/"VirtualBox VMs/IE10 - Win7/"
-    cd $HOME/"VirtualBox VMs/IE10 - Win7/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE10.Win7.For.Windows.VirtualBox.zip" ] && mv "../IE10.Win7.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE10 - Win7.ova" ] && unzip 'IE10.Win7.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -222,11 +202,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE9 - Win7"
-    mkdir -p $HOME/"VirtualBox VMs/IE9 - Win7/"
-    cd $HOME/"VirtualBox VMs/IE9 - Win7/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE9.Win7.For.Windows.VirtualBox.zip" ] && mv "../IE9.Win7.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE9 - Win7.ova" ] && unzip 'IE9.Win7.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -245,11 +222,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE8 - Win7"
-    mkdir -p $HOME/"VirtualBox VMs/IE8 - Win7/"
-    cd $HOME/"VirtualBox VMs/IE8 - Win7/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE8.Win7.For.Windows.VirtualBox.zip" ] && mv "../IE8.Win7.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE8 - Win7.ova" ] && unzip 'IE8.Win7.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -268,11 +242,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE7 - Vista"
-    mkdir -p $HOME/"VirtualBox VMs/IE7 - Vista/"
-    cd $HOME/"VirtualBox VMs/IE7 - Vista/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE7.Vista.For.Windows.VirtualBox.zip" ] && mv "../IE7.Vista.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE7 - Vista.ova" ] && unzip 'IE7.Vista.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -291,11 +262,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE8 - WinXP"
-    mkdir -p $HOME/"VirtualBox VMs/IE8 - WinXP/"
-    cd $HOME/"VirtualBox VMs/IE8 - WinXP/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE8.XP.For.Windows.VirtualBox.zip" ] && mv "../IE8.XP.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE8 - WinXP.ova" ] && unzip 'IE8.XP.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
@@ -314,11 +282,8 @@ then
 
     # Setup
     VBoxManage unregistervm --delete "IE6 - WinXP"
-    mkdir -p $HOME/"VirtualBox VMs/IE6 - WinXP/"
-    cd $HOME/"VirtualBox VMs/IE6 - WinXP/"
 
-    # Move the archive files if needed, extract OVA
-    [ ! -e "IE6.XP.For.Windows.VirtualBox.zip" ] && mv "../IE6.XP.For.Windows.VirtualBox.zip" .
+    # Extract OVA
     [ ! -e "IE6 - WinXP.ova" ] && unzip 'IE6.XP.For.Windows.VirtualBox.zip'
 
     # Import to VirtualBox
