@@ -9,9 +9,8 @@ This inventively titled application is a simple shell script for downloading mod
 * bash
 * VirtualBox
 
-## Setup ##
-This script intends for the VMs to run from a /home/ModernIEVMs/ directory, to avoid running the VMs in the user's home directory because doing that when the home directory is encrypted kills VM performance.
+## Downloaded Archive ##
+The script will download the .zip files to the vm-archive directory within this repo, so you can copy these between computers easily to save downloading again
 
-In order for this to work, you need to create that directory and change the owner so that the script can edit it:
-
-    sudo mkdir /home/ModernIEVMs/ && sudo chown $USER:$USER /home/ModernIEVMs/
+## Recommended Setup ##
+If you are logged in with a user which has an encrypted home directory, you may well encounter performance issues. To avoid this I recommend configuring VirtualBox to store the imported VMs in /home/virtual-machines/, just make sure you chown the directory to your current logged in user.
