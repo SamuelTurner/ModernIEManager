@@ -37,7 +37,7 @@ cd "vm-archive"
 ### If VM archives missing, add to download list ###
 if [ ${choices[0]} ]
 then
-    [ ! -e "Microsoft Edge.Win10.For.Windows.VirtualBox.zip" ] && urls+='https://az792536.vo.msecnd.net/vms/VMBuild_20150801/VirtualBox/MSEdge/Windows/Microsoft%20Edge.Win10.For.Windows.VirtualBox.zip '
+    [ ! -e "MSEdge.Win10_RS1.VirtualBox.zip" ] && urls+='https://az792536.vo.msecnd.net/vms/VMBuild_20160802/VirtualBox/MSEdge/MSEdge.Win10_RS1.VirtualBox.zip '
 fi
 
 if [ ${choices[1]} ]
@@ -104,13 +104,13 @@ if [ ${choices[0]} ]
   VBoxManage unregistervm --delete "IE11 - Win10"
 
   # Extract OVA
-  [ ! -e "IE11 - Win10.ova" ] && unzip 'Microsoft Edge.Win10.For.Windows.VirtualBox.zip'
+  [ ! -e "MSEdge - Win10_preview.ova" ] && unzip 'MSEdge.Win10_RS1.VirtualBox.zip'
 
   # Import to VirtualBox
-  VBoxManage import "IE11 - Win10.ova"
+  VBoxManage import "MSEdge - Win10_preview.ova"
 
   # Remove the OVA
-  rm "IE11 - Win10.ova"
+  rm "MSEdge - Win10_preview.ova"
 fi
 
 # Extract IE11 - Win8.1
