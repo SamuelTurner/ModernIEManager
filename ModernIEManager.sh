@@ -37,7 +37,7 @@ cd "vm-archive"
 ### If VM archives missing, add to download list ###
 if [ ${choices[0]} ]
 then
-    [ ! -e "MSEdge.Win10.VirtualBox.zip" ] && urls+='https://az792536.vo.msecnd.net/vms/VMBuild_20171019/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip '
+    [ ! -e "MSEdge.Win10.VirtualBox.zip" ] && urls+='https://az792536.vo.msecnd.net/vms/VMBuild_20180425/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip '
 fi
 
 if [ ${choices[1]} ]
