@@ -13,7 +13,7 @@ archiveDir="vm-archive"
 displayNames[0]="MSEdge - Win10"
 zipNames[0]="MSEdge.Win10.VirtualBox.zip"
 ovaNames[0]="MSEdge - Win10.ova"
-urls[0]="https://az792536.vo.msecnd.net/vms/VMBuild_20171019/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"
+urls[0]="https://az792536.vo.msecnd.net/vms/VMBuild_20180425/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"
 
 # Add details for Windows 8.1 - IE11
 displayNames[1]="IE11 - Win81"
@@ -68,7 +68,7 @@ done
 ### Download missing VM archives ###
 cd $archiveDir
 
-for i in "${!choices[@]}"; do 
+for i in "${!choices[@]}"; do
   printf "%s\t%s\n" "$i" "${choices[$i]}"
 
   [ ! -e "${zipNames[i]}" ] && downloads+="${urls[i]} "
@@ -92,7 +92,7 @@ for i in "${!choices[@]}"; do
 done
 
 ### Extract the OVAs ###
-for i in "${!choices[@]}"; do 
+for i in "${!choices[@]}"; do
     if [ ! -e "${ovaNames[i]}" ]; then
         echo "==============================="
         echo "Extracting ${displayNames[i]}"
@@ -102,7 +102,7 @@ for i in "${!choices[@]}"; do
 done
 
 ### Import the OVAs ###
-for i in "${!choices[@]}"; do 
+for i in "${!choices[@]}"; do
     VBoxManage import "${ovaNames[i]}"
 done
 
