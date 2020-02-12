@@ -9,41 +9,11 @@ ovaNames=()
 urls=()
 archiveDir="vm-archive"
 
-# Add details for Windows 10 - Edge
+# Add details for Windows 10 - Edge & IE11
 displayNames[0]="MSEdge - Win10"
 zipNames[0]="MSEdge.Win10.VirtualBox.zip"
 ovaNames[0]="MSEdge - Win10.ova"
-urls[0]="https://az792536.vo.msecnd.net/vms/VMBuild_20180425/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"
-
-# Add details for Windows 8.1 - IE11
-displayNames[1]="IE11 - Win81"
-zipNames[1]="IE11.Win81.VirtualBox.zip"
-ovaNames[1]="IE11 - Win81.ova"
-urls[1]="https://az792536.vo.msecnd.net/vms/VMBuild_20180102/VirtualBox/IE11/IE11.Win81.VirtualBox.zip"
-
-# Add details for Windows 7 - IE11
-displayNames[2]="IE11 - Win7"
-zipNames[2]="IE11.Win7.VirtualBox.zip"
-ovaNames[2]="IE11 - Win7.ova"
-urls[2]="https://az792536.vo.msecnd.net/vms/VMBuild_20180102/VirtualBox/IE11/IE11.Win7.VirtualBox.zip"
-
-# Add details for Windows 7 - IE10
-displayNames[3]="IE10 - Win7"
-zipNames[3]="IE10.Win7.VirtualBox.zip"
-ovaNames[3]="IE10 - Win7.ova"
-urls[3]="https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE10/IE10.Win7.VirtualBox.zip"
-
-# Add details for Windows 7 - IE9
-displayNames[4]="IE9 - Win7"
-zipNames[4]="IE9.Win7.VirtualBox.zip"
-ovaNames[4]="IE9 - Win7.ova"
-urls[4]="https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE9/IE9.Win7.VirtualBox.zip"
-
-# Add details for Windows 7 - IE8
-displayNames[5]="IE8 - Win7"
-zipNames[5]="IE8.Win7.VirtualBox.zip"
-ovaNames[5]="IE8 - Win7.ova"
-urls[5]="https://az792536.vo.msecnd.net/vms/VMBuild_20150916/VirtualBox/IE8/IE8.Win7.VirtualBox.zip"
+urls[0]="https://az792536.vo.msecnd.net/vms/VMBuild_20190311/VirtualBox/MSEdge/MSEdge.Win10.VirtualBox.zip"
 
 ### Declare Helper Functions ###
 menu() {
